@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TD02
+namespace LogicLayer
 {
     /// <summary>
     /// A simple person
@@ -12,7 +12,10 @@ namespace TD02
     public class Person
     {
         #region attributes
-
+        private String lastname;
+        private String firstname;
+        private String adresse;
+        private String phone;
         #endregion
 
         #region properties
@@ -21,16 +24,16 @@ namespace TD02
         /// </summary>
         public string LastName 
 		{ 
-			get {return "";} 
-			set {} 
+			get {return lastname;} 
+			set {lastname = value;} 
 		}
         /// <summary>
         /// get or set the person first name.
         /// </summary>
         public string FirstName 
 		{ 
-			get {return "";}
-            set { }
+			get {return firstname;}
+            set { firstname = value; }
         }
         
         /// <summary>
@@ -38,8 +41,8 @@ namespace TD02
         /// </summary>
         public string Address 
 		{ 
-			get {return "";}
-			set {} 
+			get {return adresse;}
+			set { adresse = value; } 
 		}
         
 		/// <summary>
@@ -47,8 +50,8 @@ namespace TD02
         /// </summary>
         public string Phone 
 		{ 
-			get {return "";}
-			set {}
+			get {return phone;}
+			set { phone = value; }
 		}
 
         /// <summary>
@@ -56,7 +59,7 @@ namespace TD02
         /// </summary>
         public string Identity
         {
-            get { return ""; }            
+            get { return lastname + " " + firstname; }            
         }
         #endregion
 
@@ -67,6 +70,8 @@ namespace TD02
         /// <param name="first">person's firstname</param>
         public Person(string last, string first)
         {
+            lastname = last;
+            firstname = first;
 
         }
 

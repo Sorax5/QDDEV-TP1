@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TD02
+namespace LogicLayer
 {
     /// <summary>
     /// A directory composes persons
@@ -13,7 +13,7 @@ namespace TD02
     public class Directory
     {
         #region associations
-
+        private List<Person> contact = new List<Person>();
         #endregion
 
         #region operations
@@ -23,7 +23,7 @@ namespace TD02
         /// <param name="p">the person to add</param>
         public void NewContact(Person p)
         {
-            
+            contact.Add(p);  
         }
         /// <summary>
         /// Remove a person from the contacts
@@ -31,7 +31,11 @@ namespace TD02
         /// <param name="p">person to remove</param>
         public void RemoveContact(Person p)
         {
-            
+            contact.Remove(p);
+        }
+        public Person FindContact(String id)
+        {
+            return contact.Find(p => p.Identity == id);
         }
         /// <summary>
         /// List all the contacts
@@ -39,7 +43,7 @@ namespace TD02
         /// <returns>An simple array containing contacts</returns>
         public Person[] ListContacts()
         {
-            return null;
+            return contact.ToArray();
         }
 
         /// <summary>
@@ -49,7 +53,15 @@ namespace TD02
         /// <returns>an array with the contacts found</returns>
         public Person[] ListContacts(char initial)
         {
-            return null;
+            List<Person> filtre = new List<Person>();
+            foreach (Person h in contact)
+            {
+                if (h.LastName.StartsWith(initial.ToString()))
+                {
+                    filtre.Add(h);
+                }
+            }
+            return filtre.ToArray();
         }
         #endregion
     }
