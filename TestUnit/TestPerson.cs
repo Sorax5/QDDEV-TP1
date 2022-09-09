@@ -57,5 +57,28 @@ namespace UnitTests
             Person p = CreatePerson();
             Assert.Equal("doe john", p.Identity);
         }
+        
+        [Fact]
+        public void TestCopy()
+        {
+            Person p = new Person("Jean","Michel");
+            Person p2 = new Person(p);
+            Assert.Equal(p.LastName, p2.LastName);
+            Assert.Equal(p.FirstName, p2.FirstName);
+            Assert.Equal(p.Address, p2.Address);
+            Assert.Equal(p.Phone, p2.Phone);
+
+            p.LastName = "Dupont";
+            p.FirstName = "Jacques";
+            p.Address = "1 rue de la paix";
+            p.Phone = "01-02-03-04-05";
+
+            p2.Copy(p);
+
+            Assert.Equal(p.LastName, p2.LastName);
+            Assert.Equal(p.FirstName, p2.FirstName);
+            Assert.Equal(p.Address, p2.Address);
+            Assert.Equal(p.Phone, p2.Phone);
+        }
     }
 }

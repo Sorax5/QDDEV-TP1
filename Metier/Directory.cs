@@ -33,6 +33,11 @@ namespace LogicLayer
         {
             contact.Remove(p);
         }
+        /// <summary>
+        /// find contact by his id
+        /// </summary>
+        /// <param name="id"> identifiant of the Person</param>
+        /// <returns> a Person </returns>
         public Person FindContact(String id)
         {
             return contact.Find(p => p.Identity == id);

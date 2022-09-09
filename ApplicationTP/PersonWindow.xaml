@@ -1,0 +1,33 @@
+﻿<Window x:Class="ApplicationTP.PersonWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ApplicationTP"
+        mc:Ignorable="d"
+        Title="PersonWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="First Name:" Margin="168,0,5,0" VerticalAlignment="Center" Height="42" FontStyle="Normal" FontSize="16"/>
+        <Label Content="Last Name:" Margin="163,0,10,0" VerticalAlignment="Center" Height="42" FontStyle="Normal" FontSize="16" Grid.Row="1"/>
+        <Label Content="Adresse:" Margin="184,0,10,0" VerticalAlignment="Center" Height="42" FontStyle="Normal" FontSize="16" Grid.Row="2"/>
+        <Label Content="Phone Number:" Margin="133,9,533,0" VerticalAlignment="Top" Height="42" FontStyle="Normal" FontSize="16" Grid.Row="3" Grid.ColumnSpan="2"/>
+        <Button x:Name="ok" Content="Ok" HorizontalAlignment="Left" Margin="184,0,0,0" Grid.Row="4" VerticalAlignment="Center" Height="42" Width="73" Click="ok_Click"/>
+        <Button x:Name="cancel" Content="Cancel" HorizontalAlignment="Left" Margin="450,0,0,0" Grid.Row="4" VerticalAlignment="Center" Height="42" Width="73" Grid.Column="1" Click="cancel_Click"/>
+        <TextBox x:Name="first" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding FirstName}" VerticalAlignment="Center" Width="513" Height="42"/>
+        <TextBox x:Name="last" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding LastName}" VerticalAlignment="Center" Width="513" Height="42" Grid.Row="1"/>
+        <TextBox x:Name="adresse" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Adresse}" VerticalAlignment="Center" Width="513" Height="166" Grid.Row="2"/>
+        <TextBox x:Name="phone" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Phone}" VerticalAlignment="Top" Width="513" Height="42" Margin="0,9,0,0" Grid.Row="3"/>
+
+    </Grid>
+</Window>

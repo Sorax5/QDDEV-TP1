@@ -72,7 +72,28 @@ namespace LogicLayer
         {
             lastname = last;
             firstname = first;
-
+        }
+        /// <summary>
+        /// Copy Constuctor
+        /// </summary>
+        /// <param name="p">The person to copy</param>
+        public Person(Person p)
+        {
+            lastname = p.lastname;
+            firstname = p.firstname;
+            adresse = p.adresse;
+            phone = p.phone;
+        }
+        /// <summary>
+        /// Update person information
+        /// </summary>
+        /// <param name="p">Person to copy</param>
+        public void Copy(Person p)
+        {
+            lastname = p.lastname;
+            firstname = p.firstname;
+            adresse = p.adresse;
+            phone = p.phone;
         }
 
         /// <summary>
@@ -84,6 +105,13 @@ namespace LogicLayer
             return Identity;
         }
 
-
+        public override bool Equals(object? obj)
+        {
+            return obj is Person person &&
+                   lastname == person.lastname &&
+                   firstname == person.firstname &&
+                   adresse == person.adresse &&
+                   phone == person.phone;
+        }
     }
 }
