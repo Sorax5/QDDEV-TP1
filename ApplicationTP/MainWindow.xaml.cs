@@ -27,8 +27,8 @@ namespace ApplicationTP
         
         public MainWindow()
         {
-            InitializeComponent();
             directory = new Directory();
+            InitializeComponent();
             directory.NewContact(new Person("harris", "steve"));
             directory.NewContact(new Person("dickinson", "bruce"));
             directory.NewContact(new Person("murray", "dave"));
