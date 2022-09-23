@@ -29,12 +29,12 @@ namespace ApplicationTP
         {
             directory = new Directory();
             InitializeComponent();
-            directory.NewContact(new Person("harris", "steve"));
+            directory.NewContact(new Person("harris", "steve", GenderType.MALE));
             directory.NewContact(new Person("dickinson", "bruce"));
-            directory.NewContact(new Person("murray", "dave"));
-            directory.NewContact(new Person("smith", "adrian"));
+            directory.NewContact(new Person("murray", "dave", GenderType.FEMALE));
+            directory.NewContact(new Person("smith", "adrian", GenderType.MALE));
             directory.NewContact(new Person("gers", "jannick"));
-            directory.NewContact(new Person("mc brain", "nicko"));
+            directory.NewContact(new Person("mc brain", "nicko",GenderType.FEMALE));
             PrintList();
         }
 
@@ -44,7 +44,7 @@ namespace ApplicationTP
             Person[] list = directory.ListContacts();
             foreach (Person p in list)
             {
-                contacts.Items.Add(p);
+                contacts.Items.Add(new PersonIHM(p));
             }
         }
 
@@ -55,29 +55,29 @@ namespace ApplicationTP
             if (fen.ShowDialog() == true)
             {
                 directory.NewContact(p);
-                PrintList();
             }
+            PrintList();
 
         }
 
         private void remove_Click(object sender, RoutedEventArgs e)
         {
-            if (contacts.SelectedItem is Person p)
+            if (contacts.SelectedItem is PersonIHM p)
             {
-                directory.RemoveContact(p);
+                directory.RemoveContact(p.Personne);
                 PrintList();
             }
         }
 
         private void edit_Click(object sender, RoutedEventArgs e)
         {
-            if (contacts.SelectedItem is Person p)
+            if (contacts.SelectedItem is IPerson p)
             {
-                Person TempP = new Person(p);
+                IPerson TempP = (IPerson)p.Clone();
                 PersonWindow fen = new PersonWindow(TempP);
                 if (fen.ShowDialog() == true)
                 {
-                    p.Copy(TempP);   
+                    p.Copy(TempP);
                 }
                 PrintList();
             }

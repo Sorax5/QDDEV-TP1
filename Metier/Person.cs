@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,57 +9,73 @@ namespace LogicLayer
     /// <summary>
     /// A simple person
     /// </summary>
-    public class Person
+    public class Person : IPerson
     {
         #region attributes
         private String lastname;
         private String firstname;
         private String adresse;
         private String phone;
+        private GenderType gender;
         #endregion
 
         #region properties
         /// <summary>
         /// get or set the person last name
         /// </summary>
-        public string LastName 
-		{ 
-			get {return lastname;} 
-			set {lastname = value;} 
-		}
+        public string LastName
+        {
+            get { return lastname; }
+            set { lastname = value; }
+        }
         /// <summary>
         /// get or set the person first name.
         /// </summary>
-        public string FirstName 
-		{ 
-			get {return firstname;}
+        public string FirstName
+        {
+            get { return firstname; }
             set { firstname = value; }
         }
-        
+
         /// <summary>
         /// get or set the person's address
         /// </summary>
-        public string Address 
-		{ 
-			get {return adresse;}
-			set { adresse = value; } 
-		}
-        
-		/// <summary>
+        public string Address
+        {
+            get { return adresse; }
+            set { adresse = value; }
+        }
+
+        /// <summary>
         /// get or set the phone number of the person
         /// </summary>
-        public string Phone 
-		{ 
-			get {return phone;}
-			set { phone = value; }
-		}
+        public string Phone
+        {
+            get { return phone; }
+            set { phone = value; }
+        }
 
         /// <summary>
         /// get the person's identity (LastName FirstName)
         /// </summary>
         public string Identity
         {
-            get { return lastname + " " + firstname; }            
+            get { return lastname + " " + firstname; }
+        }
+
+        /// <summary>
+        /// Setter & Getter of the gender 
+        /// </summary>
+        public GenderType Gender
+        {
+            get
+            {
+                return this.gender;
+            }
+            set
+            {
+                this.gender = value;
+            }
         }
         #endregion
 
@@ -68,10 +84,11 @@ namespace LogicLayer
         /// </summary>
         /// <param name="last">person's lastname</param>
         /// <param name="first">person's firstname</param>
-        public Person(string last, string first)
+        public Person(string last, string first, GenderType gender = GenderType.NEUTRAL)
         {
             lastname = last;
             firstname = first;
+            this.gender = gender;
         }
         /// <summary>
         /// Copy Constuctor
@@ -83,17 +100,20 @@ namespace LogicLayer
             firstname = p.firstname;
             adresse = p.adresse;
             phone = p.phone;
+            gender = p.gender;
         }
         /// <summary>
         /// Update person information
         /// </summary>
         /// <param name="p">Person to copy</param>
-        public void Copy(Person p)
+        public void Copy(IPerson p)
         {
-            lastname = p.lastname;
-            firstname = p.firstname;
-            adresse = p.adresse;
-            phone = p.phone;
+            
+            lastname = p.LastName;
+            firstname = p.FirstName;
+            adresse = p.Address;
+            phone = p.Phone;
+            gender = p.Gender;
         }
 
         /// <summary>
@@ -105,13 +125,24 @@ namespace LogicLayer
             return Identity;
         }
 
+        /// <summary>
+        /// Equals of the Object
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object? obj)
         {
             return obj is Person person &&
                    lastname == person.lastname &&
                    firstname == person.firstname &&
                    adresse == person.adresse &&
-                   phone == person.phone;
+                   phone == person.phone &&
+                   gender == person.gender;
+        }
+
+        public object Clone()
+        {
+            return new Person(this);
         }
     }
 }

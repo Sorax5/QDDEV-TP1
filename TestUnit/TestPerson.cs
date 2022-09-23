@@ -57,7 +57,14 @@ namespace UnitTests
             Person p = CreatePerson();
             Assert.Equal("doe john", p.Identity);
         }
-        
+
+        [Fact]
+        public void TestGender()
+        {
+            Person p = CreatePerson();
+            Assert.Equal(GenderType.NEUTRAL, p.Gender);
+        }
+
         [Fact]
         public void TestCopy()
         {
@@ -67,11 +74,13 @@ namespace UnitTests
             Assert.Equal(p.FirstName, p2.FirstName);
             Assert.Equal(p.Address, p2.Address);
             Assert.Equal(p.Phone, p2.Phone);
+            Assert.Equal(p.Gender, p2.Gender);
 
             p.LastName = "Dupont";
             p.FirstName = "Jacques";
             p.Address = "1 rue de la paix";
             p.Phone = "01-02-03-04-05";
+            p.Gender = GenderType.MALE;
 
             p2.Copy(p);
 
@@ -79,6 +88,7 @@ namespace UnitTests
             Assert.Equal(p.FirstName, p2.FirstName);
             Assert.Equal(p.Address, p2.Address);
             Assert.Equal(p.Phone, p2.Phone);
+            Assert.Equal(p.Gender, p2.Gender);
         }
     }
 }

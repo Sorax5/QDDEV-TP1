@@ -21,24 +21,26 @@ namespace ApplicationTP
     public partial class PersonWindow : Window
     {
         #region association
-        private Person person;
+        private IPerson temp,person;
         #endregion
-        
-        public PersonWindow(Person person)
-        {
-            this.person = person;
-            this.DataContext = person;
-            InitializeComponent();
-        }
 
+        public PersonWindow(IPerson person)
+        {
+            InitializeComponent();
+            temp = (IPerson)person.Clone();
+            this.person = person;
+            this.DataContext = temp;
+            
+        }
+        
         private void cancel_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = false;
-
         }
 
         private void ok_Click(object sender, RoutedEventArgs e)
         {
+            person.Copy(temp);
             this.DialogResult = true;
         }
     }
