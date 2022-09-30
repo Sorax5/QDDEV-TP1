@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicLayer", "Metier\LogicL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "TestUnit\UnitTests.csproj", "{DD2B1B7F-5AE7-4AF9-8BBC-78FB6D99D3CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization", "Serialization\Serialization.csproj", "{49125440-9145-4253-BC29-4AC396B60353}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serialization", "Serialization\Serialization.csproj", "{49125440-9145-4253-BC29-4AC396B60353}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -79,7 +79,7 @@ namespace ApplicationTP
         #endregion
 
         /// <summary>
-        /// 
+        /// Constructeur de la class
         /// </summary>
         /// <param name="p"></param>
         public PersonIHM(Person p)
@@ -96,11 +96,19 @@ namespace ApplicationTP
         public string LastName { get => personne.LastName; set => personne.LastName = value; }
         public string Phone { get => personne.Phone; set => personne.Phone = value; }
 
+        /// <summary>
+        /// Make a clone of the person
+        /// </summary>
+        /// <returns></returns>
         public object Clone()
         {
             return new PersonIHM((Person)personne.Clone());
         }
 
+        /// <summary>
+        /// Copy other Person info
+        /// </summary>
+        /// <param name="p"></param>
         public void Copy(IPerson p)
         {
             personne.Copy(p);

@@ -20,22 +20,36 @@ namespace Serialization
         private Directory directory;
         #endregion
 
+        /// <summary>
+        /// COnstructeur de la classe
+        /// </summary>
         public JsonStorage()
         {
-            this.file = "directory.json";
+            this.file = Environment.CurrentDirectory + "directory.json";
         }
 
-
+        /// <summary>
+        /// Crée une nouvelle personne
+        /// </summary>
+        /// <returns></returns>
         public Person Create()
         {
             return new Person("","");
         }
 
+        /// <summary>
+        /// Supprime une personne du dictionnaire
+        /// </summary>
+        /// <param name="person"></param>
         public void Delete(Person person)
         {
             this.Save();
         }
 
+        /// <summary>
+        /// Deserialize le Dictionnaire
+        /// </summary>
+        /// <returns></returns>
         public Directory Load()
         {
             // load Directory from a Json file
@@ -55,6 +69,10 @@ namespace Serialization
             return directory;
         }
 
+        /// <summary>
+        /// Serialize le Dictionnaire
+        /// </summary>
+        /// <param name="person"></param>
         public void Update(Person person)
         {
             this.Save();
