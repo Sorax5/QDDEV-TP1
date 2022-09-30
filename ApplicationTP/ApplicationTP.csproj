@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Metier\LogicLayer.csproj" />
+    <ProjectReference Include="..\Serialization\Serialization.csproj" />
   </ItemGroup>
 
   <ItemGroup>

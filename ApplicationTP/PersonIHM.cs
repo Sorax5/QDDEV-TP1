@@ -45,6 +45,9 @@ namespace ApplicationTP
             get { return personne; }
         }
 
+        /// <summary>
+        /// On vérifie que la personne est un male
+        /// </summary>
         public bool IsMale
         {
             get => personne.Gender.Equals(GenderType.MALE);
@@ -57,6 +60,9 @@ namespace ApplicationTP
             }
         }
 
+        /// <summary>
+        /// On vérifie que la personnes est une female
+        /// </summary>
         public bool Isfemale
         {
             get => personne.Gender.Equals(GenderType.FEMALE);
@@ -72,7 +78,10 @@ namespace ApplicationTP
 
         #endregion
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="p"></param>
         public PersonIHM(Person p)
         {
             personne = p;

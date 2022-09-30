@@ -3,19 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace LogicLayer
 {
     /// <summary>
     /// A simple person
     /// </summary>
+    [DataContract]
     public class Person : IPerson
     {
         #region attributes
+        [DataMember]
         private String lastname;
+        [DataMember]
         private String firstname;
+        [DataMember]
         private String adresse;
+        [DataMember]
         private String phone;
+        [DataMember]
         private GenderType gender;
         #endregion
 
@@ -89,6 +96,7 @@ namespace LogicLayer
             lastname = last;
             firstname = first;
             this.gender = gender;
+            this.adresse = "";
         }
         /// <summary>
         /// Copy Constuctor
@@ -140,6 +148,10 @@ namespace LogicLayer
                    gender == person.gender;
         }
 
+        /// <summary>
+        /// Return a clone of the instance
+        /// </summary>
+        /// <returns></returns>
         public object Clone()
         {
             return new Person(this);

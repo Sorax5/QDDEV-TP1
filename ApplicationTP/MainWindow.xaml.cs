@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LogicLayer;
+using Serialization;
 
 namespace ApplicationTP
 {
@@ -23,18 +24,15 @@ namespace ApplicationTP
     {
         #region associations
         private Directory directory;
+        private IStorage storage;
         #endregion
-        
+
         public MainWindow()
         {
-            directory = new Directory();
+            storage = new JsonStorage();
+            directory = storage.Load();
             InitializeComponent();
-            directory.NewContact(new Person("harris", "steve", GenderType.MALE));
-            directory.NewContact(new Person("dickinson", "bruce"));
-            directory.NewContact(new Person("murray", "dave", GenderType.FEMALE));
-            directory.NewContact(new Person("smith", "adrian", GenderType.MALE));
-            directory.NewContact(new Person("gers", "jannick"));
-            directory.NewContact(new Person("mc brain", "nicko",GenderType.FEMALE));
+            
             PrintList();
         }
 
@@ -50,36 +48,38 @@ namespace ApplicationTP
 
         private void add_Click(object sender, RoutedEventArgs e)
         {
-            Person p = new Person("", "");
+            Person p = (Person)storage.Create();
             PersonWindow fen = new PersonWindow(p);
             if (fen.ShowDialog() == true)
             {
                 directory.NewContact(p);
             }
             PrintList();
+            storage.Update(p);
 
         }
 
         private void remove_Click(object sender, RoutedEventArgs e)
         {
-            if (contacts.SelectedItem is PersonIHM p)
+            if (contacts.SelectedItem is IPerson p)
             {
-                directory.RemoveContact(p.Personne);
+                storage.Delete((Person)p);
                 PrintList();
             }
         }
 
         private void edit_Click(object sender, RoutedEventArgs e)
         {
-            if (contacts.SelectedItem is IPerson p)
+            if (contacts.SelectedItem is PersonIHM p)
             {
-                IPerson TempP = (IPerson)p.Clone();
+                PersonIHM TempP = (PersonIHM)p.Clone();
                 PersonWindow fen = new PersonWindow(TempP);
                 if (fen.ShowDialog() == true)
                 {
                     p.Copy(TempP);
                 }
                 PrintList();
+                storage.Update(p.Personne);
             }
         }
     }

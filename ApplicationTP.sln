@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationTP", "ApplicationTP\ApplicationTP.csproj", "{FF0E49D8-AA72-400A-BADB-30EB7E68D07E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationTP", "ApplicationTP\ApplicationTP.csproj", "{FF0E49D8-AA72-400A-BADB-30EB7E68D07E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicLayer", "Metier\LogicLayer.csproj", "{A99D3DE0-C586-4628-8617-2254E6614194}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicLayer", "Metier\LogicLayer.csproj", "{A99D3DE0-C586-4628-8617-2254E6614194}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "TestUnit\UnitTests.csproj", "{DD2B1B7F-5AE7-4AF9-8BBC-78FB6D99D3CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "TestUnit\UnitTests.csproj", "{DD2B1B7F-5AE7-4AF9-8BBC-78FB6D99D3CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization", "Serialization\Serialization.csproj", "{49125440-9145-4253-BC29-4AC396B60353}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{DD2B1B7F-5AE7-4AF9-8BBC-78FB6D99D3CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD2B1B7F-5AE7-4AF9-8BBC-78FB6D99D3CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD2B1B7F-5AE7-4AF9-8BBC-78FB6D99D3CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49125440-9145-4253-BC29-4AC396B60353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49125440-9145-4253-BC29-4AC396B60353}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49125440-9145-4253-BC29-4AC396B60353}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49125440-9145-4253-BC29-4AC396B60353}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

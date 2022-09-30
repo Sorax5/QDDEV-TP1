@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace LogicLayer
 {
@@ -10,9 +11,11 @@ namespace LogicLayer
     /// A directory composes persons
     /// </summary>
     /// <see cref="Person"/>
+    [DataContract]
     public class Directory
     {
         #region associations
+        [DataMember]
         private List<Person> contact = new List<Person>();
         #endregion
 
