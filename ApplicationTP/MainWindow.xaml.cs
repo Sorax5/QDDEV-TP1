@@ -55,8 +55,9 @@ namespace ApplicationTP
         {
             if (contacts.SelectedItem is PersonIHM p)
             {
-                storage.Delete(p.Personne);
+                directory.RemoveContact(p.Personne);
                 PrintList();
+                storage.Delete(p.Personne);
             }
         }
 
