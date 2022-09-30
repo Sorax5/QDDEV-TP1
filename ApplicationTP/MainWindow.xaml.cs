@@ -4,14 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 using LogicLayer;
 using Serialization;
 
@@ -48,22 +41,21 @@ namespace ApplicationTP
 
         private void add_Click(object sender, RoutedEventArgs e)
         {
-            Person p = (Person)storage.Create();
-            PersonWindow fen = new PersonWindow(p);
+            PersonIHM p = new PersonIHM(new Person("", ""));
+            PersonWindow fen = new PersonWindow((IPerson)p);
             if (fen.ShowDialog() == true)
             {
-                directory.NewContact(p);
+                directory.NewContact(p.Personne);
             }
             PrintList();
-            storage.Update(p);
-
+            storage.Update(p.Personne);
         }
 
         private void remove_Click(object sender, RoutedEventArgs e)
         {
-            if (contacts.SelectedItem is IPerson p)
+            if (contacts.SelectedItem is PersonIHM p)
             {
-                storage.Delete((Person)p);
+                storage.Delete(p.Personne);
                 PrintList();
             }
         }
@@ -73,7 +65,7 @@ namespace ApplicationTP
             if (contacts.SelectedItem is PersonIHM p)
             {
                 PersonIHM TempP = (PersonIHM)p.Clone();
-                PersonWindow fen = new PersonWindow(TempP);
+                PersonWindow fen = new PersonWindow((IPerson)TempP);
                 if (fen.ShowDialog() == true)
                 {
                     p.Copy(TempP);

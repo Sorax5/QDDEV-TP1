@@ -63,7 +63,7 @@ namespace ApplicationTP
         /// <summary>
         /// On vérifie que la personnes est une female
         /// </summary>
-        public bool Isfemale
+        public bool IsFemale
         {
             get => personne.Gender.Equals(GenderType.FEMALE);
             set
