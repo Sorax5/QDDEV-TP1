@@ -41,7 +41,7 @@ namespace ApplicationTP
 
         private void add_Click(object sender, RoutedEventArgs e)
         {
-            PersonIHM p = new PersonIHM(new Person("", ""));
+            PersonIHM p = new PersonIHM(storage.Create());
             PersonWindow fen = new PersonWindow((IPerson)p);
             if (fen.ShowDialog() == true)
             {

@@ -35,13 +35,11 @@ namespace ApplicationTP
         private void cancel_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = false;
-            this.Close();
         }
 
         private void ok_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = true;
-            this.Close();
         }
     }
 }
